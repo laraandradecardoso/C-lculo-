@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
  <meta charset="UTF-8">
- <title>Try Catch - Tratamento de Erros</title>
+ <title>Tratamento de Erros</title>
 </head>
 <body>
  <h2>Divisão</h2>
@@ -32,7 +32,7 @@
  let numero2 = Number(input2);
 
  if (isNaN(numero1) || isNaN(numero2)) {
- throw new Error("Informe apenas valores numéricos válidos!");
+ throw new Error("Informe apenas números válidos!");
  }
 
  if (numero2 === 0) {
@@ -57,7 +57,7 @@
  let numero = Number(input);
 
  if (isNaN(numero)) {
- throw new Error("Informe apenas valores numéricos válidos!");
+ throw new Error("Informe apenas números válidos!");
  }
 
  if (numero < 0) {
