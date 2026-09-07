@@ -1,1 +1,75 @@
-# C-lculo-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <title>Try Catch - Tratamento de Erros</title>
+</head>
+<body>
+ <h2>Divisão</h2>
+ <input type="number" id="numero1" placeholder="Digite o primeiro número">
+ <input type="number" id="numero2" placeholder="Digite o segundo número">
+ <button onclick="dividir()">Calcular</button>
+ <p id="resultado"></p>
+
+ <hr>
+
+ <h2>Raiz Quadrada</h2>
+ <input type="number" id="numeroRaiz" placeholder="Digite um número">
+ <button onclick="calcularRaiz()">Calcular</button>
+ <p id="resultadoRaiz"></p>
+
+ <script>
+ function dividir() {
+ try {
+ let input1 = document.getElementById("numero1").value.trim();
+ let input2 = document.getElementById("numero2").value.trim();
+
+ if (input1 === "" || input2 === "") {
+ throw new Error("Por favor, preencha todos os campos!");
+ }
+
+ let numero1 = Number(input1);
+ let numero2 = Number(input2);
+
+ if (isNaN(numero1) || isNaN(numero2)) {
+ throw new Error("Informe apenas valores numéricos válidos!");
+ }
+
+ if (numero2 === 0) {
+ throw new Error("Não é possível dividir por zero!");
+ }
+
+ let resultado = numero1 / numero2;
+ document.getElementById("resultado").textContent = "Resultado: " + resultado;
+ } catch (erro) {
+ document.getElementById("resultado").textContent = "Erro: " + erro.message;
+ }
+ }
+
+ function calcularRaiz() {
+ try {
+ let input = document.getElementById("numeroRaiz").value.trim();
+
+ if (input === "") {
+ throw new Error("Por favor, digite um número!");
+ }
+
+ let numero = Number(input);
+
+ if (isNaN(numero)) {
+ throw new Error("Informe apenas valores numéricos válidos!");
+ }
+
+ if (numero < 0) {
+ throw new Error("Não é possível calcular a raiz quadrada de um número negativo!");
+ }
+
+ let resultado = Math.sqrt(numero);
+ document.getElementById("resultadoRaiz").textContent = "Resultado: " + resultado;
+ } catch (erro) {
+ document.getElementById("resultadoRaiz").textContent = "Erro: " + erro.message;
+ }
+ }
+ </script>
+</body>
+</html>
